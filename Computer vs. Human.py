@@ -99,16 +99,18 @@ def print_matrix2(board1, board2):
         board2[0]) + " " + str(board2[1]) + " " + str(board2[2]) + "\n"
     print (str_matrix)
 
+
 def move_human_pawn(pawn, roll, p2_board):
     ret_code = 0
-    if pawn < MAX_BLOCKS and pawn + move <= MAX_BLOCKS:
-        if p2_board[pawn + roll] > 0 and (pawn + move) % 4 != 0:
+    if pawn < MAX_BLOCKS and pawn + roll <= MAX_BLOCKS:
+        if p2_board[pawn + roll] > 0 and (pawn + roll) % 4 != 0:
             print("Invalid roll!!! Pick again")
             ret_code = 1
-        elif p2_board[pawn + roll] == 0 or (pawn + move) % 4 == 0:
+        elif p2_board[pawn + roll] == 0 or (pawn + roll) % 4 == 0:
             p2_board[pawn + roll] = p2_board[pawn + roll] + 1
             p2_board[pawn] = p2_board[pawn] - 1
     return ret_code
+
 
 def move_pawn_to_next_pos(MAX_BLOCKS, p1_board, move):
     for i in range(MAX_BLOCKS, -1, -1):
